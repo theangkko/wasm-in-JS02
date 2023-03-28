@@ -43,6 +43,8 @@ tasks:
       sudo dotnet workload install wasm-tools
       sudo dotnet workload install wasm-experimental
       sudo dotnet new wasmbrowser
+      sudo dotnet workload restore
+
 vscode:
   extensions:
     - GrapeCity.gc-excelviewer
