@@ -5,8 +5,8 @@ image: gitpod/workspace-dotnet
 tasks:
   - name : Terminal Python
     before : |
-      pip install --upgrade pip
       sudo apt-get update -y
+      pip install --upgrade pip
       pip install beautifulsoup4
       pip install pandas
       pip install requests
@@ -22,11 +22,13 @@ tasks:
       echo 'TODO: start app'
       echo 'DONE: settings for Sogogi'
       pyenv global 3.9.13 && pyenv local 3.9.13
+
   - name: Terminal Dotnet Restore & Build
     before: |
       dotnet dev-certs https 
       dotnet restore
       dotnet build
+
   - name: WASM pre-requisite
     before : |
       wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -40,6 +42,7 @@ tasks:
     command: |
       sudo dotnet workload install wasm-tools
       sudo dotnet workload install wasm-experimental
+      sudo dotnet new wasmbrowser
 vscode:
   extensions:
     - GrapeCity.gc-excelviewer
