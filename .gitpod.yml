@@ -23,12 +23,6 @@ tasks:
       echo 'DONE: settings for Sogogi'
       pyenv global 3.9.13 && pyenv local 3.9.13
 
-  - name: Terminal Dotnet Restore & Build
-    before: |
-      dotnet dev-certs https 
-      dotnet restore
-      dotnet build
-
   - name: WASM pre-requisite
     before : |
       wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -37,11 +31,12 @@ tasks:
       sudo apt-get update && \
       sudo apt-get install -y dotnet-sdk-7.0
       sudo dotnet workload install wasm-tools
+      sudo dotnet workload restore
 
     command: |
       sudo dotnet workload install wasm-experimental
       sudo dotnet new wasmbrowser
-      sudo dotnet workload restore
+
 
 vscode:
   extensions:
