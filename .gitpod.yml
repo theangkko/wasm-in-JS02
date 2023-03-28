@@ -45,10 +45,7 @@ tasks:
 
 vscode:
   extensions:
-    - GrapeCity.gc-excelviewer
-    - ms-toolsai.jupyter
-    - ritwickdey.LiveServer
     - PKief.material-icon-theme
-    - ms-python.python
     - formulahendry.code-runner
-    - rangav.vscode-thunder-client
+    - ms-python.python
+    
